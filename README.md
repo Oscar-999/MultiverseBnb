@@ -113,12 +113,12 @@ In short, this code handles authenticated requests to retrieve and format spot-r
 
    * `npm install`
 
-3. Create a **.env** file using the **.envexample** provided 
+3. Create a **.env** file using the **.envexample** provided
 
-4. Set up your database with information from your .env and then run the following to create your database, migrate, and seed: 
- 
+4. Set up your database with information from your .env and then run the following to create your database, migrate, and seed:
+
    * `npx dotenv sequelize db:create`
-   * `npx dotenv sequelize db:migrate` 
+   * `npx dotenv sequelize db:migrate`
    * `npx dotenv sequelize db:seed:all`
 
 5. Start the app for both backend and frontend using:
@@ -130,7 +130,7 @@ In short, this code handles authenticated requests to retrieve and format spot-r
 
 ***
 
-# Features 
+# Features
 
 ## Spots
 * Users can create a Spot
