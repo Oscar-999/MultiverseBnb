@@ -1,7 +1,7 @@
 {
   "name": "multiversebnb",
   "version": "1.0.0",
-  "description": "MultiverseBnb is a fullstack web application. It is a clone/parody of the website airbnb. You can crete a spot add reviews and even manage bookings. Have fun exploring the different universe you can stay at.",
+  "description": "MultiverseBnb is a fullstack web application. It is a clone/parody of the website airbnb. You can create a spot add reviews and even manage bookings. Have fun exploring the different universe you can stay at.",
   "main": "index.js",
   "scripts": {
     "install": "npm --prefix backend install backend",
