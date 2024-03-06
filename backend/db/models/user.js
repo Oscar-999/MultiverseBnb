@@ -1,10 +1,32 @@
 "use strict";
-const { Model, Validator } = require("sequelize");
 
+const { Validator } = require("sequelize");
+
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
     static associate(models) {
       // define association here
+      User.hasMany(models.Spot, {
+        foreignKey: "ownerId",
+        onDelete: "CASCADE",
+        hooks: true,
+      }),
+        User.hasMany(models.Booking, {
+          foreignKey: "userId",
+          onDelete: "CASCADE",
+          hooks: true,
+        }),
+        User.hasMany(models.Review, {
+          foreignKey: "userId",
+          onDelete: "CASCADE",
+          hooks: true,
+        });
     }
   }
 
@@ -21,6 +43,20 @@ module.exports = (sequelize, DataTypes) => {
             }
           },
         },
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      profilePic: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue:
+          "https://skills-swap.s3.us-east-2.amazonaws.com/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg",
       },
       email: {
         type: DataTypes.STRING,
