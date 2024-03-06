@@ -9,11 +9,11 @@
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0",
+    "react-redux": "^7.2.9",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
-    "redux": "^5.0.1",
-    "redux-thunk": "^3.1.0"
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,5 +38,6 @@
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
