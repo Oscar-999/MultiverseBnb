@@ -27,6 +27,8 @@ const router = express.Router();
 
 //Get Details of A Spot Id
 
+
+
 //Delete a Spot
 router.delete("/:spotId", requireAuth, async (req, res) => {
     try {
@@ -49,7 +51,6 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 
       res.status(200).json({ message: "Successfully deleted" });
     } catch (error) {
-      console.error(error);
       res.status(500).json({ message: "Internal server error" });
     }
   });
