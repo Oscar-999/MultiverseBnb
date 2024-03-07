@@ -39,5 +39,25 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
   }
 });
 
+//Current User Bookings
+router.get("/current", requireAuth, async(req,res) => {
+    try {
+        const userId = req.user.id;
+
+        const bookings = await Booking.findAll({
+            where: {
+                userId
+            },
+            include: [
+                {
+                    model: Spot,
+                    attributes: 
+                }
+            ],
+        })
+    } catch (error) {
+        return res.status(500).json({message: "Internal Server error"})
+    }
+})
 
 module.exports = router
