@@ -4,6 +4,11 @@ const { Review } = require("../../db/models");
 
 const router = express.Router();
 
+
+//TODO Create a Review
+
+
+// Delete a Review
 router.delete("/:reviewId", requireAuth, async (req, res) => {
   try {
     const userId = req.user.id;
