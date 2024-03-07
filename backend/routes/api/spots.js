@@ -25,6 +25,7 @@ const validateSpot = [
     .withMessage("Name must be less than 50 characters"),
   check("description").notEmpty().withMessage("Description is required"),
   check("price").notEmpty().withMessage("Price per day is required"),
+  handleValidationErrors,
 ];
 
 const router = express.Router();
@@ -37,11 +38,54 @@ const router = express.Router();
 // });
 
 // Create a Spot
-router.post("/", requireAuth, async (req, res, next) => {
-
+router.post("/", requireAuth, validateSpot, async (req, res) => {
+  try {
+    const {
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+    } = req.body;
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
+//Edit a Spot
+router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
+  try {
+    const {
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+    } = req.body;
+    const spotId = req.params.spotId
+    const userId = req.user.id
 
+    const spot = await Spot.findByPk(spotId)
+
+    if (!spot) {
+      res.status(404).json({message: "Spot couldn't be found"})
+
+    if (spot.ownerId !== userId) {
+      res.status(403).json({message: "Th"})
+    }
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 //Delete a Spot
 router.delete("/:spotId", requireAuth, async (req, res) => {
