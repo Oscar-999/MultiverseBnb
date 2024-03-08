@@ -37,7 +37,6 @@ const router = express.Router();
 //   return res.json(spots);
 // });
 
-
 // Create a Booking from a Spot based on the Spot's id
 router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   const { user } = req;
@@ -111,17 +110,78 @@ const reviewCreate = [
     .isInt({ min: 1, max: 5 })
     .withMessage("Stars must be an integer from 1 to 5"),
   handleValidationErrors,
-]
+];
 
 //Create a Review from a Spot based on the Spot's id
-router.post("/:spotId/reviews", reviewCreate, requireAuth, async (req,res) => {
+router.post("/:spotId/reviews", reviewCreate, requireAuth, async (req, res) => {
   try {
+    const { review, stars } = req.body;
+    const { user } = req;
+    const spotId = req.params.spotId;
+    const spot = await Spot.findByPk(spotId);
 
-  } catch(error) {
-    res.status(500).json({message: "Internal Server Error"})
+    if (!spot) {
+      return res.status(404).json({ message: "Spot Could not be found" });
+    }
+
+    const existingReview = await Review.findOne({
+      where: {
+        userId: user.id,
+        spotId: req.params.spotId,
+      },
+    });
+
+    if (existingReview) {
+      return res
+        .status(409)
+        .json({ message: "User already has a review for this spot" });
+    }
+
+    const createdReview = await Review.create({
+      userId: user.id,
+      spotId: spot.id,
+      review: review,
+      stars: stars,
+    });
+
+    return res.status(201).json(createdReview);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
   }
-})
+});
 
+//Get all Reviews based on Spots Id
+
+router.get("/:spotId/reviews", async (req, res) => {
+  try {
+    const spotId = req.params.spotId;
+
+    const spot = await Spot.findByPk(spotId);
+    if (!spot) {
+      return res.status(404).json({ message: "Spot couldn't be found" });
+    }
+
+    const reviews = await Review.findAll({
+      where: {
+        spotId,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName"],
+        },
+        {
+          model: ReviewImage,
+          attributes: ["id", "url"],
+        },
+      ],
+    });
+
+    return res.json({ Reviews: reviews });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 //Add an Image to a Spot based on Id
 router.post("/:spotId/images", requireAuth, async (req, res) => {
@@ -171,7 +231,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 });
 
 // Create a Spot
-router.post("/",validateSpot, requireAuth,  async (req, res) => {
+router.post("/", validateSpot, requireAuth, async (req, res) => {
   try {
     const {
       address,
@@ -184,7 +244,7 @@ router.post("/",validateSpot, requireAuth,  async (req, res) => {
       description,
       price,
     } = req.body;
-    const userId = req.user.id
+    const userId = req.user.id;
     const newSpot = await Spot.create({
       ownerId: userId,
       address,
@@ -196,11 +256,10 @@ router.post("/",validateSpot, requireAuth,  async (req, res) => {
       name,
       description,
       price,
-    })
+    });
 
-    return res.status(201).json(newSpot)
+    return res.status(201).json(newSpot);
   } catch (error) {
-
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -328,6 +387,5 @@ router.get("/:spotId", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 module.exports = router;
