@@ -107,9 +107,41 @@ router.put("/:reviewId", requireAuth, validateReviewEdit, async (req, res) => {
 });
 
 //Add an Image to a Review based on the Review's id
-
 router.post("/:reviewId/images", requireAuth, async (req, res) => {
   try {
+    const { url } = req.body;
+    const  userId  = req.user.id;
+    const reviewId = req.params.reviewId;
+
+    const review = await Review.findByPk(reviewId);
+
+    if (!review) {
+      return res.status(404).json({ message: "This Review doesn't exist" });
+    }
+
+    if (userId !== review.userId) {
+      return res
+        .status(403)
+        .json({ message: "You don't have permission to do this" });
+    }
+    const allImages = await ReviewImage.findAll({
+      where: {
+        reviewId: req.params.reviewId,
+      },
+    });
+
+    if (allImages.length < 10) {
+      const image = await ReviewImage.create({
+        reviewId: req.params.reviewId,
+        url: url,
+      });
+
+      return res.json({ id: image.id, url });
+    } else {
+      return res.status(403).json({
+        message: "Maximum number of images for this resource was reached",
+      });
+    }
   } catch (error) {
     return res.status(500).json({ message: "Internal Server Error" });
   }
