@@ -39,7 +39,7 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
   }
 });
 
-//Todo Current User Bookings
+// Current User Bookings
 router.get("/current", requireAuth, async (req, res) => {
   try {
     const userId = req.user.id;

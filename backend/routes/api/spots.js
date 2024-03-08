@@ -105,6 +105,20 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
   }
 });
 
+const reviewCreate = [
+  check("review").notEmpty().withMessage("Review text is required")
+  check("stars")
+]
+
+//Create a Review from a Spot based on the Spot's id
+router.post("/:spotId/reviews", requireAuth, async (req,res) => {
+  try {
+
+  } catch(error) {
+    res.status(500).json({message: "Internal Server Error"})
+  }
+})
+
 
 //Add an Image to a Spot based on Id
 router.post("/:spotId/images", requireAuth, async (req, res) => {
