@@ -107,18 +107,51 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
 
 
 //Add an Image to a Spot based on Id
-router.post("/:spotId/images", requireAuth, async (req,res) => {
+router.post("/:spotId/images", requireAuth, async (req, res) => {
   try {
     const spotId = req.params.spotId;
     const userId = req.user.id;
-    const {url, preview} = req.body
+    const { url, preview } = req.body;
 
-    const image = await
+    // Check if the spot exists and belongs to the current user
+    const spot = await Spot.findOne({
+      where: {
+        id: spotId,
+        ownerId: userId,
+      },
+    });
 
-  } catch(error) {
-    res.status(500).json({message: "Internal Server Error"})
+    if (!spot) {
+      return res.status(404).json({ message: "Spot couldn't be found" });
+    }
+
+    // Create the image
+    const image = await SpotImage.create(
+      {
+        spotId,
+        url,
+        preview,
+      },
+      {
+        // Exclude createdAt, updatedAt, and spotId fields
+        attributes: { exclude: ["createdAt", "updatedAt", "spotId"] },
+      }
+    );
+
+    // Remove the updatedAt, createdAt, and spotId fields from the image object
+    const {
+      updatedAt,
+      createdAt,
+      spotId: imageSpotId,
+      ...imageWithoutTimestamps
+    } = image.toJSON();
+
+    res.status(200).json(imageWithoutTimestamps);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
   }
-})
+});
 
 // Create a Spot
 router.post("/",validateSpot, requireAuth,  async (req, res) => {
