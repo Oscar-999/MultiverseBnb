@@ -37,8 +37,91 @@ const router = express.Router();
 //   return res.json(spots);
 // });
 
+
+// Create a Booking from a Spot based on the Spot's id
+router.post("/:spotId/bookings", requireAuth, async (req, res) => {
+  const { user } = req;
+  const { startDate, endDate } = req.body;
+  const spot = await Spot.findByPk(req.params.spotId);
+  const startDay = new Date(startDate);
+  const lastDay = new Date(endDate);
+  const comment = {
+    message: "Sorry, this spot is already booked for the specified dates",
+    errors: {},
+  };
+
+  if (!spot || spot.ownerId === user.id) {
+    return res.status(404).json({ message: "Spot couldn't be found" });
+  }
+
+  if (startDay >= lastDay) {
+    return res.status(400).json({
+      message: "Bad Request",
+      errors: {
+        endDate: "endDate cannot come before startDate",
+      },
+    });
+  }
+
+  const allBookings = await Booking.findAll({
+    where: {
+      spotId: spot.id,
+    },
+  });
+
+  allBookings.forEach((e) => {
+    if (e.startDate <= startDay && e.endDate >= startDay) {
+      comment.errors.startDate =
+        "Start date conflicts with an existing booking";
+    }
+    if (e.endDate >= lastDay && e.startDate <= lastDay) {
+      comment.errors.endDate = "End date conflicts with an existing booking";
+    }
+  });
+
+  if (Object.keys(comment.errors).length) {
+    return res
+      .status(403)
+      .json({ message: comment.message, errors: comment.errors });
+  } else {
+    const booking = await Booking.create({
+      spotId: spot.id,
+      userId: user.id,
+      startDate: startDay,
+      endDate: lastDay,
+    });
+
+    const scheduleDates = {
+      id: booking.id,
+      spotId: spot.id,
+      userId: user.id,
+      startDate: startDate,
+      endDate: endDate,
+      createdAt: booking.createdAt,
+      updatedAt: booking.updatedAt,
+    };
+
+    return res.status(200).json(scheduleDates);
+  }
+});
+
+
+//Add an Image to a Spot based on Id
+router.post("/:spotId/images", requireAuth, async (req,res) => {
+  try {
+    const spotId = req.params.spotId;
+    const userId = req.user.id;
+    const {url, preview} = req.body
+
+    const image = await
+
+  } catch(error) {
+    res.status(500).json({message: "Internal Server Error"})
+  }
+})
+
 // Create a Spot
-router.post("/", requireAuth, validateSpot, async (req, res) => {
+router.post("/",validateSpot, requireAuth,  async (req, res) => {
   try {
     const {
       address,
@@ -51,7 +134,23 @@ router.post("/", requireAuth, validateSpot, async (req, res) => {
       description,
       price,
     } = req.body;
+    const userId = req.user.id
+    const newSpot = await Spot.create({
+      ownerId: userId,
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+    })
+
+    return res.status(201).json(newSpot)
   } catch (error) {
+
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -70,18 +169,31 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
       description,
       price,
     } = req.body;
-    const spotId = req.params.spotId
-    const userId = req.user.id
+    const spotId = req.params.spotId;
+    const userId = req.user.id;
 
-    const spot = await Spot.findByPk(spotId)
+    const spot = await Spot.findByPk(spotId);
 
     if (!spot) {
-      res.status(404).json({message: "Spot couldn't be found"})
-
+      return res.status(404).json({ message: "Spot couldn't be found" });
+    }
     if (spot.ownerId !== userId) {
-      res.status(403).json({message: "Th"})
+      return res.status(403).json({ message: "You don't own this spot" });
     }
-    }
+
+    spot.address = address;
+    spot.city = city;
+    spot.state = state;
+    spot.country = country;
+    spot.lat = lat;
+    spot.lng = lng;
+    spot.name = name;
+    spot.description = description;
+    spot.price = price;
+
+    await spot.save();
+
+    return res.status(200).json(spot);
   } catch (error) {
     return res.status(500).json({ message: "Internal Server Error" });
   }
@@ -167,5 +279,5 @@ router.get("/:spotId", async (req, res) => {
   }
 });
 
-//create a spot
+
 module.exports = router;
