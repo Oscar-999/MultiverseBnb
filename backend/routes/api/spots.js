@@ -106,12 +106,15 @@ router.post("/:spotId/bookings", requireAuth, async (req, res) => {
 });
 
 const reviewCreate = [
-  check("review").notEmpty().withMessage("Review text is required")
+  check("review").exists({ checkFalsy: true }),
   check("stars")
+    .isInt({ min: 1, max: 5 })
+    .withMessage("Stars must be an integer from 1 to 5"),
+  handleValidationErrors,
 ]
 
 //Create a Review from a Spot based on the Spot's id
-router.post("/:spotId/reviews", requireAuth, async (req,res) => {
+router.post("/:spotId/reviews", reviewCreate, requireAuth, async (req,res) => {
   try {
 
   } catch(error) {
