@@ -1,0 +1,20 @@
+.things-to-know-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.things-to-know-col {
+    flex: 1;
+    padding: 20px;
+}
+
+.things-to-know-col h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.things-to-know-col p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
