@@ -1,13 +1,11 @@
-// frontend/src/components/SignupFormPage/index.js
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
-import "./SignupForm.css";
 
-function SignupFormPage() {
+
+function SignupFormModal() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -15,10 +13,9 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const { closeModal } = useModal();
 
-  if (sessionUser) return <Redirect to="/" />;
-
-  const handleSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors({});
@@ -30,32 +27,48 @@ function SignupFormPage() {
           lastName,
           password,
         })
-      ).catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) {
-          setErrors(data.errors);
-        }
-      });
+      )
+        .then(closeModal)
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) {
+            setErrors(data.errors);
+          }
+        });
     }
     return setErrors({
-      confirmPassword: "Confirm Password field must be the same as the Password field"
+      confirmPassword:
+        "Confirm Password field must be the same as the Password field",
     });
   };
 
+  let isDisabled = true;
+  if (
+    username.length >= 4 &&
+    password.length >= 6 &&
+    email &&
+    firstName &&
+    lastName &&
+    confirmPassword
+  ) {
+    isDisabled = false;
+  }
+
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="loging-wrapper">
+      <form onSubmit={submitHandler}>
+        <h1>Sign Up</h1>
+        <h2>Welcome to Airbnb</h2>
         <label>
           Email
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <div className="errors">{errors.email}</div>}
         <label>
           Username
           <input
@@ -65,7 +78,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <div className="errors">{errors.username}</div>}
         <label>
           First Name
           <input
@@ -75,7 +88,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.firstName && <p>{errors.firstName}</p>}
+        {errors.firstName && <div className="errors">{errors.firstName}</div>}
         <label>
           Last Name
           <input
@@ -85,7 +98,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.lastName && <p>{errors.lastName}</p>}
+        {errors.lastName && <div className="errors">{errors.lastName}</div>}
         <label>
           Password
           <input
@@ -95,7 +108,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <div className="errors">{errors.password}</div>}
         <label>
           Confirm Password
           <input
@@ -105,11 +118,17 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
+        {errors.confirmPassword && (
+          <div className="errors">{errors.confirmPassword}</div>
+        )}
+        <div className="login">
+          <button type="submit" disabled={isDisabled}>
+            Sign Up
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 
-export default SignupFormPage;
+export default SignupFormModal;
