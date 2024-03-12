@@ -1,0 +1,75 @@
+/* SpotInfoFooter.css */
+
+.spot-details-footer {
+    background-color: #f7f7f7;
+    padding: 40px 0;
+    color: #555;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    max-width: 220px;
+    text-align: left;
+}
+
+.footer-section {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+.language-currency {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.language-currency p {
+    margin: 0 10px;
+}
+
+.footer-section p {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    color: #555;
+    text-decoration: none;
+}
+
+.footer-section {
+    background-color: #f7f7f7;
+    color: #555;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.footer-section li {
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-section a {
+    color: #555;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #333;
+}
