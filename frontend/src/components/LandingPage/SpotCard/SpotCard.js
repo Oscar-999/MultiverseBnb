@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import './SpotCard.css'
 const SpotCard = ({ spot }) => {
   return (
     <div key={spot.id} className="spot" title={spot.name}>

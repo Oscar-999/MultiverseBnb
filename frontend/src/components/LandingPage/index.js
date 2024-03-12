@@ -5,6 +5,7 @@ import SpotList from "./SpotLists/SpotLists.js";
 
 import "./LandingPage.css";
 import SearchBox from "../Navigation/SearchBox/SearchBox.js";
+import Footer from "./Footer/Footer.js";
 
 const LandingPage = () => {
   const [searchField, setSearchField] = useState("");
@@ -40,9 +41,10 @@ const LandingPage = () => {
       <SearchBox
         className="search-box"
         onChangeHandler={onSearchChange}
-        placeholder="search spots"
+        placeholder="Search Spots"
       />
       <SpotList spots={filteredSpots} />
+      <Footer/>
     </div>
   );
 };
