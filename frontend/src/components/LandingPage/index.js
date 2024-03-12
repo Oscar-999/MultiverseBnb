@@ -1,37 +1,50 @@
-import React, { useEffect,  } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { thunkAllSpots } from '../../store/spots'
-import SpotList from './SpotLists/SpotLists.js'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { thunkAllSpots } from "../../store/spots";
+import SpotList from "./SpotLists/SpotLists.js";
 
-import './LandingPage.css'
-
+import "./LandingPage.css";
+import SearchBox from "../Navigation/SearchBox/SearchBox.js";
 
 const LandingPage = () => {
-// const [searchField, setSearchFiled] = useState('');
-const dispatch = useDispatch()
-const spotObj = useSelector((state) => state.spots.allSpots);
-const spotList = Object.values(spotObj)
+  const [searchField, setSearchField] = useState("");
+  const [filteredSpots, setFilterSpots] = useState([]);
 
-useEffect(() => {
+  const dispatch = useDispatch();
+  const spotObj = useSelector((state) => state.spots.allSpots);
+  const spotList = Object.values(spotObj);
+
+  useEffect(() => {
     dispatch(thunkAllSpots());
-}, [dispatch])
+  }, [dispatch]);
 
-// const onSearchChange = (event) => {
-//     const searchFieldString = event.target.value.toLocaleLowerCase()
-//     setSearchFiled(searchFieldString)
-// }
+  useEffect(() => {
+    const newFilteredSpots = spotList.filter((spot) => {
+      return spot.name.toLowerCase().includes(searchField.toLowerCase());
+    });
 
+    setFilterSpots(newFilteredSpots);
+  }, [spotList, searchField]);
 
-if(!spotList) {
-    return null
-}
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLowerCase();
+    setSearchField(searchFieldString);
+  };
+
+  if (!spotList) {
+    return null;
+  }
 
   return (
     <div>
-        <SpotList spots={spotList}/>
+      <SearchBox
+        className="search-box"
+        onChangeHandler={onSearchChange}
+        placeholder="search spots"
+      />
+      <SpotList spots={filteredSpots} />
     </div>
-  )
-}
+  );
+};
 
-
-export default LandingPage
+export default LandingPage;
