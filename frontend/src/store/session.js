@@ -36,18 +36,50 @@ export const restoreUser = () => async (dispatch) => {
     return response;
 };
 
+// export const signup = (user) => async (dispatch) => {
+//     const { username, firstName, lastName, email, password, image } = user;
+//     const response = await csrfFetch("/api/users", {
+//         method: "POST",
+//         body: JSON.stringify({
+//             username,
+//             firstName,
+//             lastName,
+//             email,
+//             password,
+//         }),
+//     });
+//     const data = await response.json();
+//     dispatch(setUser(data.user));
+//     return response;
+// };
+
+// export const logout = () => async (dispatch) => {
+//     const response = await csrfFetch('/api/session', {
+//         method: 'DELETE',
+//     });
+//     dispatch(removeUser());
+//     return response;
+// };
+
+
 export const signup = (user) => async (dispatch) => {
-    const { username, firstName, lastName, email, password } = user;
+    const { username, firstName, lastName, email, password, profilePic } = user;
+    const formData = new FormData()
+    formData.append("username", username)
+    formData.append("firstName", firstName)
+    formData.append("lastName", lastName)
+    formData.append("email", email)
+    formData.append("password", password)
+    if (profilePic) formData.append("profilePic", profilePic);
+
     const response = await csrfFetch("/api/users", {
         method: "POST",
-        body: JSON.stringify({
-            username,
-            firstName,
-            lastName,
-            email,
-            password,
-        }),
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+        body: formData,
     });
+
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;
@@ -60,6 +92,8 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
     return response;
 };
+
+
 
 const initialState = { user: null };
 
