@@ -1,1 +1,60 @@
-/* TODO Add site wide styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+@media (max-width: 1300px) {
+    main ul {
+        grid: auto-flow/ 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1000px) {
+    main ul {
+        grid: auto-flow/ 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+    main ul {
+        grid: auto-flow/ 1fr;
+    }
+}
