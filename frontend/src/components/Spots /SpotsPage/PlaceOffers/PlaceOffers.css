@@ -1,0 +1,25 @@
+.place-offers-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    font-size: 16px;
+    color: #222;
+}
+
+.left-place-offers,
+.right-place-offers {
+    flex: 1;
+}
+
+.left-place-offers p,
+.right-place-offers p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.left-place-offers i,
+.right-place-offers i {
+    margin-right: 12px;
+    font-size: 24px;
+}
