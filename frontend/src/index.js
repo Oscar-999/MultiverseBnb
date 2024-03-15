@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./index.css";
-// import ScrollToTop from "./components/Scroll/ScrollToTop";
+import ScrollToTop from "./components/Scroll/ScrollToTop";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -30,7 +30,7 @@ function Root() {
     <ModalProvider>
       <Provider store={store}>
         <BrowserRouter>
-          {/* <ScrollToTop /> */}
+          <ScrollToTop />
           <App />
           <Modal />
         </BrowserRouter>
