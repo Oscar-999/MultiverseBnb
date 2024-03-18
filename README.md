@@ -153,3 +153,4 @@ Logged-in Users can
 
 ## Contact
 Contact Me[LinkedIn](https://www.linkedin.com/in/oscaralcantar/)
+Email developedbyoscar@gmail.com
