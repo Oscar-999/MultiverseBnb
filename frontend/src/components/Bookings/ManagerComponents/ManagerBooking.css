@@ -1,0 +1,69 @@
+.manage-bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.manages h1 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.review {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review h3 {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.review > div {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.date h4 {
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  background-color: #ff5a5f;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.buttons button:hover {
+  background-color: #e0484e;
+}
+
