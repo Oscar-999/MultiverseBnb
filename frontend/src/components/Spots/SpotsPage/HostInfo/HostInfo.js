@@ -1,5 +1,5 @@
 import React from "react";
-import PlaceOffers from "./PlaceOffers/PlaceOffers";
+import PlaceOffers from "../PlaceOffers/PlaceOffers";
 import SpotDescription from "../SpotDescription/SpotDescription";
 const HostInfo = ({ spot }) => {
   return (
@@ -22,7 +22,7 @@ const HostInfo = ({ spot }) => {
       <h3 style={{ fontWeight: "bold" }}>
         <i class="fa-solid fa-calendar"></i> Free Cancellation
       </h3>
-      <SpotDescription spot={spot}/>
+      <SpotDescription spot={spot} />
       <PlaceOffers />
     </div>
   );

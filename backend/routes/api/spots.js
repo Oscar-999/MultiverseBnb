@@ -458,8 +458,7 @@ router.get("/:spotId", async (req, res) => {
 
     const numReviews = await Review.count({ where: { spotId } });
     const totalStars = await Review.sum("stars", { where: { spotId } });
-    const avgStarRating =
-      numReviews > 0 ? (totalStars / numReviews).toFixed(1) : 0;
+    const avgStarRating = numReviews > 0 ? totalStars / numReviews : 0;
 
     const response = {
       id: spot.id,

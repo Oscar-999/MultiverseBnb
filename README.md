@@ -148,7 +148,7 @@ Logged-in Users can
 * Create a booking at a spot
 * Update their booking at a spot
 * Read all of their bookings
-* Delete/Cancel their booking
+* Delete/Cancel their 
 
 
 ## Contact
