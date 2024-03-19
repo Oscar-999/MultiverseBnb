@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { thunkPostReview } from "../../../store/reviews";
+import { thunkPostReview } from "../../../store/review";
 import { useModal } from "../../../context/Modal";
 import { useSelector } from "react-redux";
 import { thunkOneSpot } from "../../../store/spots";

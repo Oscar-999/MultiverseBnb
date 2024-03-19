@@ -1,8 +1,8 @@
 import React from "react";
-import DeleteReview from "../../../Reviews/ManageReviews/DeleteReview/index";
-import OpenModalMenuItem from "../../../Navigation/OpenModalMenuItem";
+import DeleteReview from "../../Reviews/ManageReviews/DeleteReview";
+import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem";
 import { useEffect, useRef, useState } from "react";
-import './SpotReview.css'
+import "./SpotReview.css";
 const SpotReview = ({ spot, newReviewList, userReview, userId }) => {
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -28,10 +28,9 @@ const SpotReview = ({ spot, newReviewList, userReview, userId }) => {
   }
   const getFormattedDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { month: 'short', year: 'numeric' };
+    const options = { month: "short", year: "numeric" };
     return date.toLocaleDateString(undefined, options);
   };
-
 
   const sortedReviews = newReviewList.sort((a, b) => {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();

@@ -1,0 +1,164 @@
+.box {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.spot-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.spot-box h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+
+.description {
+  margin-top: 32px;
+}
+
+.description h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.description p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555555;
+}
+
+
+.info {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.reserve-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.host h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.host h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.host p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.money {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.money div {
+  margin-right: 20px;
+}
+
+.review {
+  flex: 1;
+}
+
+/* SpotReview.css */
+
+.spot-reviews {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewer-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #888;
+}
+
+.review-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.modal {
+  margin-top: 10px;
+}
+
+
+
+.modal-review button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-review button:hover {
+  background-color: #0056b3;
+}
+
+
+.new-post h1 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.modal {
+  margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .reserve-box {
+    flex-direction: column;
+  }
+
+  .host h2 {
+    font-size: 18px;
+  }
+
+  .host h3 {
+    font-size: 16px;
+  }
+
+  .money {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}

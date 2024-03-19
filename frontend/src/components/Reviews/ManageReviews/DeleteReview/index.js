@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../../context/Modal";
-import { thunkUserReviews, deleteReviewThunk } from "../../../../store/reviews";
+import { thunkUserReviews, deleteReviewThunk } from "../../../../store/review";
 import { thunkOneSpot } from "../../../../store/spots";
 
 const DeleteReview = ({ review, spot }) => {
@@ -17,7 +17,7 @@ const DeleteReview = ({ review, spot }) => {
     }
   };
   return (
-    //commit
+
     <>
       <div className="delete">
         <h1>Confirm Delete</h1>
@@ -33,6 +33,6 @@ const DeleteReview = ({ review, spot }) => {
       </div>
     </>
   );
-}
+};
 
 export default DeleteReview;
