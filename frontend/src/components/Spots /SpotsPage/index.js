@@ -10,7 +10,7 @@ import ThingsToKnow from "./ThingsToKnow/ThingsToKnow";
 import SpotInfoFooter from "./SpotFooter/SpotFooter";
 import CreateBooking from "../../Bookings/ManagerComponents/Create/CreateBooking";
 import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem";
-
+import SpotReview from "../SpotReviews/SpotReviews";
 const SpotPage = () => {
   const dispatch = useDispatch();
 
@@ -115,7 +115,7 @@ const SpotPage = () => {
                   <div className="reserve">
                     <div className="money">
                       <div>$ {spot.price} night</div>
-                      {newReviewList.length === 1 && (
+                      {/* {newReviewList.length === 1 && (
                         <div>
                           ★ {spot.avgStarRating}.0 · {newReviewList.length}{" "}
                           review
@@ -126,7 +126,7 @@ const SpotPage = () => {
                           ★ {spot.avgStarRating.toFixed(1)} ·{" "}
                           {newReviewList.length} reviews
                         </div>
-                      )}
+                      )} */}
                     </div>
                     <CreateBooking />
                   </div>

@@ -1,0 +1,54 @@
+/* SpotReview.css */
+
+.spot-review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spot-review-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.spot-review-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.spot-review-date {
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 8px;
+}
+
+.spot-review-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.spot-review-modal {
+    margin-top: 10px;
+}
+
+.spot-review-modal-button {
+    background-color: #ffffff;
+    color: #ff5a5f;
+    border: 1px solid #ff5a5f;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.spot-review-modal-button:hover {
+    background-color: #ff5a5f;
+    color: #ffffff;
+}
