@@ -41,7 +41,10 @@ const SpotReview = ({ spot, newReviewList, userReview, userId }) => {
       <ul className="spot-review-list">
         {sortedReviews.map((review) => (
           <li key={review.id} className="spot-review-item">
-            <div className="spot-review-name">{review.User?.firstName}</div>
+            <div className="spot-n-image">
+            <div className="spot-review-name">{review.User?.username}</div>
+            <img className="spot-review-pic"src={review.User?.profilePic}/>
+            </div>
             <div className="spot-review-date">
               {getFormattedDate(review.createdAt)}
             </div>

@@ -8,7 +8,6 @@ import SpotImage from "./SpotImage/SpotImage";
 import SpotReview from "../SpotReviews/SpotReviews";
 import CreateReview from "../../Reviews/CreateReview/CreateReview";
 import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import PlaceOffers from "./PlaceOffers/PlaceOffers";
 import CreateBooking from "../../Bookings/ManagerComponents/Create/CreateBooking";
 import ThingsToKnow from "./ThingsToKnow/ThingsToKnow";
