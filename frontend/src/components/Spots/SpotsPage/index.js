@@ -13,6 +13,7 @@ import CreateBooking from "../../Bookings/ManagerComponents/Create/CreateBooking
 import ThingsToKnow from "./ThingsToKnow/ThingsToKnow";
 import HostedBy from "./HostedBy/HostedBy";
 import SpotInfoFooter from "./SpotFooter/SpotFooter";
+import MapContainer from "../../Maps";
 
 const SpotPage = () => {
   const dispatch = useDispatch();
@@ -127,6 +128,8 @@ const SpotPage = () => {
               <h1>★ New</h1>
             </div>
             <HostedBy spot={spot} userId={userId} />
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
             <SpotInfoFooter />
           </div>
@@ -210,7 +213,8 @@ const SpotPage = () => {
               />
             </div>
             <HostedBy spot={spot} userId={userId} />
-
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
           </div>
           <SpotInfoFooter />
@@ -281,7 +285,8 @@ const SpotPage = () => {
               </div>
             </div>
             <HostedBy spot={spot} userId={userId} />
-
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
           </div>
           <SpotInfoFooter />
@@ -374,7 +379,8 @@ const SpotPage = () => {
               userReview={userReview}
             />
             <HostedBy spot={spot} userId={userId} />
-
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
           </div>
           <SpotInfoFooter />
@@ -468,7 +474,8 @@ const SpotPage = () => {
               userReview={userReview}
             />
             <HostedBy spot={spot} userId={userId} />
-
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
           </div>
           <SpotInfoFooter />
@@ -554,7 +561,8 @@ const SpotPage = () => {
               />
             </div>
             <HostedBy spot={spot} userId={userId} />
-
+            <h2 className="whtitle">Where you'll stay</h2>
+            <MapContainer lat={spot.lat} lng={spot.lng} />
             <ThingsToKnow />
           </div>
           <SpotInfoFooter />
@@ -639,7 +647,8 @@ const SpotPage = () => {
             )}
           </div>
           <HostedBy spot={spot} userId={userId} />
-
+          <h2 className="whtitle">Where you'll stay</h2>
+          <MapContainer lat={spot.lat} lng={spot.lng} />
           <ThingsToKnow />
         </div>
         <SpotInfoFooter />
