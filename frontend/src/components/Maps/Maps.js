@@ -10,8 +10,8 @@ const containerStyle = {
 
 const Maps = ({ lat, lng, apiKey }) => {
     const center = {
-      lat: lat,
-      lng: lng,
+    lat: Number(lat), // Convert lat to number
+    lng: Number(lng), // Convert lng to number
     };
     const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
