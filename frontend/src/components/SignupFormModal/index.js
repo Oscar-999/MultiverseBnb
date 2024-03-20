@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 
-
 function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -12,7 +11,6 @@ function SignupFormModal() {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [profilePic, setProfilePic] = useState(null);
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
@@ -27,7 +25,6 @@ function SignupFormModal() {
           firstName,
           lastName,
           password,
-          profilePic
         })
       )
         .then(closeModal)
@@ -56,10 +53,6 @@ function SignupFormModal() {
     isDisabled = false;
   }
 
-  const updateFile = (e) => {
-    const file = e.target.files[0]
-    if (file) setProfilePic(file)
-  }
   return (
     <div className="loging-wrapper">
       <form onSubmit={submitHandler}>
@@ -103,10 +96,6 @@ function SignupFormModal() {
             onChange={(e) => setLastName(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Profile Picture
-          <input type="file" onChange={updateFile} />
         </label>
         {errors.lastName && <div className="errors">{errors.lastName}</div>}
         <label>
