@@ -1,0 +1,27 @@
+.delete button{
+    width:300px;
+    height: 30px;
+    margin:.5rem;
+    color: black;
+
+}
+
+.delete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:1rem;
+}
+.delete h1{
+    align-self: center;
+}
+
+.confirm button{
+    background-color: #ff5a5f;
+    color: white
+}
+
+.cancel button{
+    background-color: #666666;
+    color:white
+}

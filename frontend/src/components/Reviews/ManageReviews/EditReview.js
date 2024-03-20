@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkUserReviews } from "../../../store/reviews";
+import { thunkUserReviews } from "../../../store/review";
 import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem";
 import DeleteReview from "./DeleteReview";
 import UpdateReviewForm from "./EditReview/index";
