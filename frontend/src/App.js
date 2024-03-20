@@ -10,6 +10,8 @@ import ManageSpots from "./components/Spots/ManageSpots/ManageSpots";
 import ManageReviews from "./components/Reviews/ManageReviews/EditReview";
 import CreateSpot from "./components/Spots/ManageSpots/CreateSpot/CreateSpot";
 import EditSpot from "./components/Spots/ManageSpots/EditSpot/EditSpot";
+import ManageBookings from "./components/Bookings/ManagerComponents/ManagerBooking";
+import CreateBooking from "./components/Bookings/ManagerComponents/Create/CreateBooking";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,6 +30,12 @@ function App() {
           <Route exact path={"/spots/:spotId"} component={SpotPage} />
           <Route exact path={"/reviews/current"} component={ManageReviews} />
           <Route exact path={"/spots/:spotId/edit"} component={EditSpot} />
+          <Route exact path={"/bookings/current"} component={ManageBookings} />
+          <Route
+            exact
+            path={"/spots/bookings/:spotId"}
+            component={CreateBooking}
+          />
         </Switch>
       )}
     </>
