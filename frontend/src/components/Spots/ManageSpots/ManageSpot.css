@@ -1,0 +1,38 @@
+ul button{
+    width:75px;
+    height: 30px;
+    border-radius: 21px;
+}
+
+.manage h1{
+    margin-left: 3rem;
+}
+
+.manage{
+    margin: 2rem;
+}
+.manage button{
+    margin-top: 1rem;
+    background-color: #666666;
+    color:white;
+    height:30px;
+    width:150px;
+    margin-left: 3rem
+}
+.buttons button{
+    background-color: #666666;
+    color: white;
+}
+
+.buttons a{
+    color: white
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    margin-left: .3rem;
+}
+.spot{
+    display: flex;
+    flex-direction: column;
+}
