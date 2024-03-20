@@ -19,6 +19,7 @@ module.exports = {
           lastName: "White",
           email: "heisenberg@gmail.com",
           username: "Heisenberg",
+          profilePic: "https://multibnb.s3.amazonaws.com/WalterWhitePfp.png",
           hashedPassword: bcrypt.hashSync("password1"),
         },
         {
@@ -26,6 +27,7 @@ module.exports = {
           lastName: "Stark",
           email: "ironman@gmail.com",
           username: "Ironman",
+          profilePic: "https://multibnb.s3.amazonaws.com/iron-man.gif",
           hashedPassword: bcrypt.hashSync("password2"),
         },
         {
@@ -33,6 +35,7 @@ module.exports = {
           lastName: "Goku",
           email: "gokuson@gmail.com",
           username: "Kakarot",
+          profilePic: "https://multibnb.s3.amazonaws.com/GokuPfp.jpg",
           hashedPassword: bcrypt.hashSync("password3"),
         },
         {
@@ -47,6 +50,7 @@ module.exports = {
           lastName: "Rigby",
           email: "regularshow@gmail.com",
           username: "Slackers",
+          profilePic: "https://multibnb.s3.amazonaws.com/Rigbypfp.jpg",
           hashedPassword: bcrypt.hashSync("regularshow"),
         },
         {
@@ -54,6 +58,7 @@ module.exports = {
           lastName: "Watterson",
           email: "gumball@gmail.com",
           username: "Gumball",
+          profilePic: "https://multibnb.s3.amazonaws.com/Gumball+Waterson.jpg",
           hashedPassword: bcrypt.hashSync("gumball"),
         },
         {
@@ -61,6 +66,7 @@ module.exports = {
           lastName: "Squarepants",
           email: "spongebob@gmail.com",
           username: "Spongebob",
+          profilePic: "https://multibnb.s3.amazonaws.com/Spongebob-Pfp-HD.jpg",
           hashedPassword: bcrypt.hashSync("spongebobss"),
         },
         {
@@ -68,6 +74,7 @@ module.exports = {
           lastName: "Star",
           email: "patrick@gmail.com",
           username: "Patrick",
+          profilePic: "https://multibnb.s3.amazonaws.com/PatrickPfp.png",
           hashedPassword: bcrypt.hashSync("patrickss"),
         },
         {
@@ -75,6 +82,7 @@ module.exports = {
           lastName: "Krabs",
           email: "krabs@gmail.com",
           username: "MrKrabs",
+          profilePic: "https://multibnb.s3.amazonaws.com/krabspfp.jpg",
           hashedPassword: bcrypt.hashSync("Krabsss"),
         },
         {
@@ -82,6 +90,7 @@ module.exports = {
           lastName: "Cheeks",
           email: "sandy@gmail.com",
           username: "SandyCheeks",
+          profilePic: "https://multibnb.s3.amazonaws.com/SC2.png",
           hashedPassword: bcrypt.hashSync("Sandyss"),
         },
         {
@@ -89,6 +98,7 @@ module.exports = {
           lastName: "Simpson",
           email: "bart@simpson.com",
           username: "Bart",
+          profilePic: "https://multibnb.s3.amazonaws.com/BartPfp.png",
           hashedPassword: bcrypt.hashSync("Bartss"),
         },
         {
@@ -96,6 +106,7 @@ module.exports = {
           lastName: "Simpson",
           email: "marge@simpson.com",
           username: "Marge",
+          profilePic: "https://multibnb.s3.amazonaws.com/MargePfp.png",
           hashedPassword: bcrypt.hashSync("Margess"),
         },
         {
@@ -103,6 +114,8 @@ module.exports = {
           lastName: "Simpson",
           email: "homer@simpson.com",
           username: "Homer",
+          profilePic:
+            "https://multibnb.s3.amazonaws.com/Homer-Simpson-Profile-Pic.jpg",
           hashedPassword: bcrypt.hashSync("Homerss"),
         },
         {
@@ -110,6 +123,7 @@ module.exports = {
           lastName: "Simpson",
           email: "lisa@simpson.com",
           username: "Lisa",
+          profilePic: "https://multibnb.s3.amazonaws.com/Lisa+Simpson.png",
           hashedPassword: bcrypt.hashSync("Lisass"),
         },
         //15
@@ -118,6 +132,7 @@ module.exports = {
           lastName: "McCormick",
           email: "kenny@southpark.com",
           username: "KennyMcCormick",
+          profilePic: "https://multibnb.s3.amazonaws.com/Kenny.png",
           hashedPassword: bcrypt.hashSync("Kennyss"),
         },
         {
@@ -125,6 +140,7 @@ module.exports = {
           lastName: "Cartman",
           email: "eric@southpark.com",
           username: "EricCartman",
+          profilePic: "https://multibnb.s3.amazonaws.com/EricCartmanPfp.jpg",
           hashedPassword: bcrypt.hashSync("Ericsss"),
         },
         {
@@ -132,6 +148,7 @@ module.exports = {
           lastName: "Broflovski",
           email: "kyle@southpark.com",
           username: "KyleBroflovski",
+          profilePic: "https://multibnb.s3.amazonaws.com/Kyle+Broflovski.jpg",
           hashedPassword: bcrypt.hashSync("Kylesss"),
         },
         {
@@ -139,6 +156,7 @@ module.exports = {
           lastName: "Marsh",
           email: "stan@southpark.com",
           username: "StanMarsh",
+          profilePic: "https://multibnb.s3.amazonaws.com/StanMarshPfp.gif",
           hashedPassword: bcrypt.hashSync("Stansss"),
         },
         {
@@ -146,6 +164,7 @@ module.exports = {
           lastName: "McCallister",
           email: "kevin@homealone.com",
           username: "KevinakaSaw",
+          profilePic: "https://multibnb.s3.amazonaws.com/KM+png.png",
           hashedPassword: bcrypt.hashSync("kevinsss"),
         },
         {
@@ -153,6 +172,7 @@ module.exports = {
           lastName: "Mertens",
           email: "finn@adventuretime.com",
           username: "finn",
+          profilePic: "https://multibnb.s3.amazonaws.com/Finn.jpg",
           hashedPassword: bcrypt.hashSync("finnsss"),
         },
         {
@@ -160,6 +180,7 @@ module.exports = {
           lastName: "Universe",
           email: "steven@stevenuniverse.com",
           username: "StevenUniverse",
+          profilePic: "https://multibnb.s3.amazonaws.com/Su.gif",
           hashedPassword: bcrypt.hashSync("finnsss"),
         },
         {
@@ -167,6 +188,7 @@ module.exports = {
           lastName: "Boy",
           email: "beastboy@titans.com",
           username: "BeastBoy",
+          profilePic: "https://multibnb.s3.amazonaws.com/BeastBoy.jpg",
           hashedPassword: bcrypt.hashSync("beastsss"),
         },
         {
@@ -174,6 +196,8 @@ module.exports = {
           lastName: "Zim",
           email: "zim@invader.com",
           username: "Zim",
+          profilePic:
+            "https://multibnb.s3.amazonaws.com/d1a74c2aef494d5baf27cc767b1c970d.jpg",
           hashedPassword: bcrypt.hashSync("invadersss"),
         },
         {
@@ -181,6 +205,7 @@ module.exports = {
           lastName: "Stan",
           email: "stan@gravityfalls.com",
           username: "GrunkleStan",
+          profilePic: "https://multibnb.s3.amazonaws.com/Grunklepfp.jpg",
           hashedPassword: bcrypt.hashSync("stannnsss"),
         },
         {
@@ -188,6 +213,7 @@ module.exports = {
           lastName: "Pines",
           email: "dipper@gravityfalls.com",
           username: "DipperPines",
+          profilePic: "https://multibnb.s3.amazonaws.com/Dipper.jpg",
           hashedPassword: bcrypt.hashSync("diperpinesss"),
         },
         {
@@ -195,7 +221,25 @@ module.exports = {
           lastName: "Pines",
           email: "mabel@gravityfalls.com",
           username: "MabelPines",
+          profilePic: "https://multibnb.s3.amazonaws.com/Mabelpfp.jpg",
           hashedPassword: bcrypt.hashSync("mabelpinesss"),
+        },
+        {
+          firstName: "Dick",
+          lastName: "Grayson",
+          email: "robin@titans.com",
+          username: "Robin",
+          profilePic: "https://multibnb.s3.amazonaws.com/Robin+Pfp.jpg",
+          hashedPassword: bcrypt.hashSync("robinnn"),
+        },
+        //28
+        {
+          firstName: "Jake",
+          lastName: "TheDog",
+          email: "jake@at.com",
+          username: "JakeTheDog",
+          profilePic: "https://multibnb.s3.amazonaws.com/Jake.png",
+          hashedPassword: bcrypt.hashSync("jakelovesfin"),
         },
       ],
       {}
@@ -235,6 +279,7 @@ module.exports = {
             "GrunkleStan",
             "DipperPines",
             "MabelPines",
+            "Robin",
           ],
         },
       },
