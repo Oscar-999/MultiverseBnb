@@ -12,7 +12,7 @@ const {
 } = require("../../db/models");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-
+const { multipleMulterUpload,  multiplePublicFileUpload,} = require('../../awsS3')
 const validateSpot = [
   check("address").notEmpty().withMessage("Street address is required"),
   check("city").notEmpty().withMessage("City is required"),
@@ -29,13 +29,7 @@ const validateSpot = [
 ];
 
 const router = express.Router();
-// Get All Spots
-// router.get("/", async (req, res) => {
-//   const spots = await Spot.findAll({
-//     include: [SpotImage, Review],
-//   });
-//   return res.json(spots);
-// });
+
 
 // Create a Booking from a Spot based on the Spot's id
 router.post("/:spotId/bookings", requireAuth, async (req, res) => {
