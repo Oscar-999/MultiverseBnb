@@ -1,6 +1,6 @@
 # MultiverseBnb
 
-MultiverseBnb is a fullstack web application. It is a clone/parody of the website airbnb. You can create a spot add reviews and even manage bookings. Have fun exploring the different universe you can stay at.
+MultiverseBnb is a fullstack web application. It is a clone/parody of the website airbnb. You can create a spot add reviews and even manage bookings. Have fun exploring the different universe you can stay at. If you want to implement locally follow the steps below 
 
 Live Site [MultiverseBnb](https://multiversebnb.onrender.com)
 
