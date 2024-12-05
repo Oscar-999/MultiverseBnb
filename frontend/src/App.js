@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
+  // Page switch implementation
   return (
     <>
       <Navigation isLoaded={isLoaded} />
